@@ -1,12 +1,21 @@
 package org.example.ch2;
 
 import java.io.*;
+import java.security.DigestInputStream;
 
 public class OutputStream {
     public static void main(String[] args) throws IOException {
-//        byte[] bytes = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-//        File file = new File("D://write_test.txt");
-//        OutputStream outputStream = new FileOutputStream(file);
+//        generateCharactersPerByte(System.out);
+//        FileInputStream
+//        ByteArrayInputStream
+//        java.net.Socket.sun
+//        generateCharactersPerLine(System.out);
+//        AutoCloseable
+//        java.io.OutputStream
+//        DigestInputStream
+//        InputStream
+
+
     }
 
     /**
@@ -15,6 +24,7 @@ public class OutputStream {
      * */
     public static void generateCharactersPerByte(java.io.OutputStream out) throws IOException {
 
+        System.out.println("Start generateCharactersPerByte");
         int firstPrintableCharacter = 33;
         int numberOfPrintableCharacters = 94;
         int numberOfCharactersPerLine = 72;
@@ -40,6 +50,7 @@ public class OutputStream {
      * 한 줄씩 출력하도록 수정
      * */
     public static void generateCharactersPerLine(java.io.OutputStream out) throws IOException {
+        System.out.println("Start generateCharactersPerLine");
 
         int firstPrintableCharacter = 33;
         int numberOfPrintableCharacters = 94;
