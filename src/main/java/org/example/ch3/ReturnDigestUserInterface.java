@@ -4,7 +4,7 @@ import javax.xml.bind.DatatypeConverter;
 
 public class ReturnDigestUserInterface {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /** 예제3 : 폴링(polling) */
         ReturnDigest[] digests = new ReturnDigest[args.length];
@@ -43,6 +43,9 @@ public class ReturnDigestUserInterface {
         }
 
         for (int i = 0; i < args.length; i++) {
+
+            /** 이 부분에 join() 메서드를 사용함으로써 동기화 이슈 해결 */
+            digests[i].join();
             //결과 출력
             StringBuffer result = new StringBuffer(args[i]);
             result.append(": ");
