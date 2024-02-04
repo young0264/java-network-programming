@@ -16,7 +16,6 @@ public class LogFile {
         this.out = new BufferedWriter(fileWriter);
     }
 
-    Thread.MIN
 //    /** 이 부분에서 동기화 이슈 발생 가능 */
 //    public void writeEntry(String message) throws IOException {
 //        Date date = new Date();
@@ -56,9 +55,11 @@ public class LogFile {
         out.write("\r\n");
     }
 
-    public void close() throws IOException {
-        synchronized (this)
-        out.flush();
-        out.close();
-    }
+//    public void close() throws IOException {
+//        synchronized (this) {
+//
+//        }
+//        out.flush();
+//        out.close();
+//    }
 }
