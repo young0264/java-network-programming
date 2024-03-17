@@ -1,6 +1,7 @@
 package org.example.ch10;
 
 import java.io.*;
+import java.net.Socket;
 import javax.net.ssl.*;
 
 public class HTTPSClient {
@@ -59,8 +60,6 @@ public class HTTPSClient {
             while ((c = in.read()) != -1 && i++ < length) {
                 System.out.write(c);
             }
-
-            System.out.println();
         } catch (IOException ex) {
             System.err.println(ex);
         } finally {
