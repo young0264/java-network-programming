@@ -18,7 +18,7 @@ public class DaytimeUDPClient {
 
             // (수신)패킷 설정 : 빈바이트 배열을 포함해야함
             // 전체 응답을 충분히 담을 크기여야함
-            DatagramPacket response = new DatagramPacket(new byte[1024], 1024);
+            DatagramPacket response = new DatagramPacket(new byte[10000], 1024);
 
             //소켓을 통해 패킷을 보내고, 받는다.
             socket.send(request);
