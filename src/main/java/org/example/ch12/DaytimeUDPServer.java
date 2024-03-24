@@ -22,6 +22,8 @@ public class DaytimeUDPServer {
                     socket.receive(request);
                     String daytime = new Date().toString();
                     byte[] data = daytime.getBytes("US-ASCII");
+
+                    //수신 받은곳과 같은 socket을 통해 응답
                     DatagramPacket response = new DatagramPacket(data, data.length, request.getAddress(), request.getPort());
                     socket.send(response);
                     audit.info(daytime + " " + request.getAddress());
