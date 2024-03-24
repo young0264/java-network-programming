@@ -5,12 +5,12 @@ import java.net.*;
 
 public class DaytimeUDPClient {
     private final static int PORT = 13;
-    private static final String HOSTNAME = "localhost";
+    private static final String HOSTNAME = "time.nist.gov";
 
     public static void main(String[] args) {
         // try-with-resources, *AutoCloseable을 구현한 객체만 try문을 벗어나면 close 메서드를 호출해줌
         try (DatagramSocket socket = new DatagramSocket(0)) { //포트 0번에 대해 소켓을 염
-            socket.setSoTimeout(10000); //타임아웃 설정(전송 실패 사실을 모르기에 udp에서 더 중요)
+            socket.setSoTimeout(3000); //타임아웃 설정(전송 실패 사실을 모르기에 udp에서 더 중요)
 
             // (송신)패킷 설정 (원격 호스트와 포트 제공)
             InetAddress host = InetAddress.getByName(HOSTNAME);
@@ -26,7 +26,7 @@ public class DaytimeUDPClient {
             String result = new String(response.getData(), 0, response.getLength(), "US-ASCII");
             System.out.println(result);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
